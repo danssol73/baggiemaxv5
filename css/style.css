@@ -1,4 +1,26 @@
 /* ============================================================
+   SKIP LINK
+   ============================================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4, 1rem);
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background-color: #e63200;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 0 0 4px 4px;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+
+/* ============================================================
    DESIGN TOKENS
    ============================================================ */
 :root {
@@ -750,5 +772,24 @@ body.lightbox-open {
   .site-footer .container {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Nav slide animation — snap instead of animate */
+  .site-nav {
+    transition: none;
   }
 }

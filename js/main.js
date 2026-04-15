@@ -14,6 +14,7 @@
   toggle.addEventListener('click', () => {
     const isOpen = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
     nav.classList.toggle('is-open', !isOpen);
   });
 
@@ -21,6 +22,7 @@
   document.addEventListener('click', (e) => {
     if (!toggle.contains(e.target) && !nav.contains(e.target)) {
       toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open navigation');
       nav.classList.remove('is-open');
     }
   });
@@ -73,12 +75,23 @@
   prevBtn.addEventListener('click', () => open(current - 1));
   nextBtn.addEventListener('click', () => open(current + 1));
 
-  // Keyboard
+  // Keyboard — includes focus trap (Tab cycles within lightbox)
   lightbox.addEventListener('keydown', (e) => {
     switch (e.key) {
       case 'Escape':     close();             break;
       case 'ArrowLeft':  open(current - 1);   break;
       case 'ArrowRight': open(current + 1);   break;
+      case 'Tab': {
+        const focusable = [closeBtn, prevBtn, nextBtn];
+        const first = focusable[0];
+        const last  = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+          if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+        }
+        break;
+      }
     }
   });
 

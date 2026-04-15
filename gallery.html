@@ -13,6 +13,8 @@
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
   <!-- ===================== HEADER ===================== -->
   <header class="site-header">
     <div class="container">
@@ -49,11 +51,13 @@
     To add images:
     1. Place your .jpg or .webp files in images/gallery/
     2. Copy a .gallery-item button below and update src, alt, and data-caption
+       IMPORTANT: Write a real description in alt="" and data-caption="" for each image
+       e.g. alt="Watercolour of a sleeping tabby cat, warm orange tones"
     3. Add class="gallery-item--wide" to any item you want to span 2 columns
 
     Recommended image size: 1200px on the longest side, under 300 KB per file.
   -->
-  <main class="section">
+  <main class="section" id="main-content">
     <div class="container">
       <div class="gallery-grid" id="gallery-grid">
 
