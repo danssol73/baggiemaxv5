@@ -38,6 +38,8 @@
     </div>
   </header>
 
+  <main id="main-content">
+
   <!-- ===================== PAGE HEADER ===================== -->
   <section class="page-header">
     <div class="container">
@@ -54,7 +56,7 @@
     3. Replace YOUR_FORM_ID in the action URL below
     4. Formspree will email you on each submission — no server-side code needed
   -->
-  <main class="section" id="main-content">
+  <div class="section">
     <div class="container">
       <div class="contact-layout">
 
@@ -68,12 +70,13 @@
 
           <!-- Replace each href with your real profile URL before going live -->
           <nav class="social-links" aria-label="Social links" style="margin-top: 2rem;">
-            <a href="https://instagram.com/" rel="noopener noreferrer" target="_blank">Instagram</a>
-            <a href="https://behance.net/" rel="noopener noreferrer" target="_blank">Behance</a>
+            <a href="https://instagram.com/" rel="noopener noreferrer" target="_blank" aria-label="Instagram (opens in new tab)">Instagram</a>
+            <a href="https://behance.net/" rel="noopener noreferrer" target="_blank" aria-label="Behance (opens in new tab)">Behance</a>
           </nav>
         </div>
 
         <form class="contact-form"
+              aria-label="Contact form"
               action="https://formspree.io/f/YOUR_FORM_ID"
               method="POST">
 
@@ -112,6 +115,8 @@
 
       </div>
     </div>
+  </div>
+
   </main>
 
   <!-- ===================== FOOTER ===================== -->
